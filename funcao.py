@@ -7,7 +7,7 @@ requisicao = requests.get('https://economia.awesomeapi.com.br/all/USD-BRL')
 cotacao = requisicao.json()
 
 def conversaoDolar(qr, cd):
-    result = qr * cd
+    result = qr / cd
     return result
 
 
@@ -15,4 +15,4 @@ cotacaoDolar = float(cotacao['USD']['bid'])
 
 qntReais = float(input(f"Digite a quantidade em R$:"))
 
-print (f"Quantidade em reais R${qntReais:,.2f} em relação à cotação atual de US${cotacaoDolar} \n Total convertido em Reais = R$ {conversaoDolar(qntReais, cotacaoDolar):,.2f}")
+print (f"Quantidade em reais R${qntReais:,.2f} em relação à cotação atual de US${cotacaoDolar} \n Total convertido em Dólar: US${conversaoDolar(qntReais, cotacaoDolar):,.2f}")
